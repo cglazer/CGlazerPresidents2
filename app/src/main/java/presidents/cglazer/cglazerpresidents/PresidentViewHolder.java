@@ -8,7 +8,7 @@ import android.widget.TextView;
  * Created by Chaya Glazer on 10/23/2015.
  */
 
-public class PresidentViewHolder extends RecyclerView.ViewHolder{
+public class PresidentViewHolder extends RecyclerView.ViewHolder {
 
     private TextView name;
 
@@ -19,8 +19,8 @@ public class PresidentViewHolder extends RecyclerView.ViewHolder{
     }
 
 
-
     public void bind(President president) {
+
         name.setText(president.getPresident());
     }
 }

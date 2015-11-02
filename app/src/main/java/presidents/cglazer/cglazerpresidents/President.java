@@ -1,36 +1,52 @@
 package presidents.cglazer.cglazerpresidents;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Chaya Glazer on 10/23/2015.
  */
 public class President {
     private int number;
     private String president;
-    private int birth_year;
-    private int death_year;
-    private String took_office;
-    private String left_office;
+    private int birthYear;
+    private int deathYear;
+    //below is another option so you can change from gson to cammlecase.
+    //@SerializedName("took_office")
+    private String tookOffice;
+    private String leftOffice;
     private String party;
 
-    public String getPresident(){
+    public String getPresident() {
+
         return this.president;
     }
-    public int getNumber(){
+
+    public int getNumber() {
+
         return this.number;
     }
-    public int getBirth_year(){
-        return this.birth_year;
+
+    public int getBirthYear() {
+
+        return this.birthYear;
     }
-    public int getDeath_year(){
-        return this.death_year;
+
+    public int getDeathYear() {
+
+        return this.deathYear;
     }
-    public String getTook_office(){
-        return this.getTook_office();
+
+    public String getTookOffice() {
+        return this.tookOffice;
     }
-    public String getLeft_office(){
-        return this.getLeft_office();
+
+    public String getLeftOffice() {
+
+        return this.leftOffice;
     }
-    public String getParty(){
+
+    public String getParty() {
+
         return this.party;
     }
 }

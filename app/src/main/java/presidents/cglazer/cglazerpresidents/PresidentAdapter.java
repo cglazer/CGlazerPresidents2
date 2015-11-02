@@ -1,5 +1,7 @@
 package presidents.cglazer.cglazerpresidents;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +22,21 @@ import android.view.ViewGroup;
 
             return new PresidentViewHolder(itemView);
         }
-        public void onBindViewHolder(PresidentViewHolder holder, int position){
+        public void onBindViewHolder(final PresidentViewHolder holder, int position){
             holder.bind(presidents[position]);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //going from main activity to detail activity
+                    Context context= holder.itemView.getContext();
+                    Intent intent= new Intent(context, DetailActivity.class);
+                    context.startActivity(intent);
+
+                }
+            });
         }
         public int getItemCount(){
-            return 0;
+            return presidents.length;
         }
     }
 
