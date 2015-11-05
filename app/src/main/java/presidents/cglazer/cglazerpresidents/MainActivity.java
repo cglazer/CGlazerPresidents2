@@ -18,24 +18,25 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     public static President[] presidents;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.list);
-        LinearLayoutManager layoutManager= new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
-        InputStream in= getResources().openRawResource(R.raw.presidents);
+        InputStream in = getResources().openRawResource(R.raw.presidents);
         //GsonBuilder builder = new GsonBuilder();
         //builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-       // Gson gson = builder.create();
-        presidents =  gson.fromJson(new InputStreamReader(in), President[].class);
-        PresidentAdapter adapter= new PresidentAdapter(presidents);
+        // Gson gson = builder.create();
+        presidents = gson.fromJson(new InputStreamReader(in), President[].class);
+        PresidentAdapter adapter = new PresidentAdapter(presidents);
         recyclerView.setAdapter(adapter);
     }
 
