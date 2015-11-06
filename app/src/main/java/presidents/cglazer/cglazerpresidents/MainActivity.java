@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    public static President[] presidents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         //GsonBuilder builder = new GsonBuilder();
         //builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
         // Gson gson = builder.create();
-        presidents = gson.fromJson(new InputStreamReader(in), President[].class);
-        PresidentAdapter adapter = new PresidentAdapter(presidents);
+        President presidents[] = gson.fromJson(new InputStreamReader(in), President[].class);
+        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents);
         recyclerView.setAdapter(adapter);
     }
 

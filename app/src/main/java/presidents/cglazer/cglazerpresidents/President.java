@@ -2,10 +2,12 @@ package presidents.cglazer.cglazerpresidents;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by Chaya Glazer on 10/23/2015.
  */
-public class President {
+public class President implements Serializable{
     private int number;
     private String president;
     private int birthYear;

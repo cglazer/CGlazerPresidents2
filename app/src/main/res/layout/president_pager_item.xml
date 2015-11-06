@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/pres_image"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name" />
+        android:adjustViewBounds="true"
+        android:maxWidth="500dp"
+        android:maxHeight="500dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="3dp"/>
 
     <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/number" />
+        android:layout_below="@id/pres_image"
+        tools:text="NAME"/>
+
     <TextView
+        android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/birth_year" />
+        android:layout_below="@id/pres_image"
+        android:layout_alignParentRight="true"
+        tools:text="NUMBER"/>
+
     <TextView
+        android:id="@+id/birth_death_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/death_year" />
+        android:layout_below="@id/name"
+        tools:text="BIRTH/DEATH YEAR"/>
+
+
     <TextView
+        android:id="@+id/took_left_office"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/took_office" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/number"
+        tools:text="TOOK/LEFT_OFFICE"/>
+
+
     <TextView
+        android:id="@+id/party"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/left_office" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/party" />
-</LinearLayout>
+        android:layout_below="@id/birth_death_year"
+        android:layout_centerHorizontal="true"
+        tools:text="PARTY"/>
+</RelativeLayout>
