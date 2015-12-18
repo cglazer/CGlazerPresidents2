@@ -9,10 +9,8 @@
     tools:context=".MainActivity">
 
 
-    <fragment
-        android:id="@+id/listFragment"
-        android:name="presidents.cglazer.cglazerpresidents.PresidentListFragment"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_president_list" />
+        android:layout_height="match_parent" />
 </RelativeLayout>

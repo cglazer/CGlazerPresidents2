@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,11 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-
     <fragment
         android:id="@+id/listFragment"
         android:name="presidents.cglazer.cglazerpresidents.PresidentListFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_president_list" />
-</RelativeLayout>
+        tools:layout="@layout/fragment_president_list"
+        android:layout_weight="1"/>
+
+    <fragment
+        android:id="@+id/detailfragment"
+        android:name="presidents.cglazer.cglazerpresidents.PresidentDetailFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>

@@ -1,61 +1,35 @@
 package presidents.cglazer.cglazerpresidents;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
-public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+public class MainActivity extends AppCompatActivity implements OnPresidentSelectedListener {
+
+    private PresidentListFragment listFragment;
+    private PresidentDetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = (RecyclerView) findViewById(R.id.list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create();
-        InputStream in = getResources().openRawResource(R.raw.presidents);
-        //GsonBuilder builder = new GsonBuilder();
-        //builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-        // Gson gson = builder.create();
-        President presidents[] = gson.fromJson(new InputStreamReader(in), President[].class);
-        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents);
-        recyclerView.setAdapter(adapter);
+        FragmentManager manager = getSupportFragmentManager();
+        listFragment = (PresidentListFragment) manager.findFragmentById(R.id.listFragment);
+        detailFragment = (PresidentDetailFragment) manager.findFragmentById(R.id.detailfragment);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void onSelect(President[] presidents, int position) {
+        if(detailFragment != null){
+            detailFragment.showPresidentDetail(presidents, position);
+        }else{
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra("POSITION", position);
+            intent.putExtra("PRESIDENTS", presidents);
+            this.startActivity(intent);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,6 +1,6 @@
 package presidents.cglazer.cglazerpresidents;
 
-import android.media.Image;
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +14,11 @@ import android.widget.TextView;
 public class PresidentPagerAdapter extends PagerAdapter {
 
     private President[] presidents;
+    private Context context;
 
     public PresidentPagerAdapter(President[] presidents) {
         this.presidents = presidents;
+
     }
 
     /**
