@@ -1,6 +1,5 @@
 package presidents.cglazer.cglazerpresidents;
 
-import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 public class PresidentPagerAdapter extends PagerAdapter {
 
     private President[] presidents;
-    private Context context;
 
     public PresidentPagerAdapter(President[] presidents) {
         this.presidents = presidents;
@@ -26,7 +24,7 @@ public class PresidentPagerAdapter extends PagerAdapter {
      */
     @Override
     public int getCount() {
-        return presidents.length;
+        return this.presidents.length;
     }
 
     /**
@@ -37,10 +35,7 @@ public class PresidentPagerAdapter extends PagerAdapter {
         return view == object;
     }
 
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
-    }
+
 
     /**
      * will create a page
@@ -48,9 +43,19 @@ public class PresidentPagerAdapter extends PagerAdapter {
      */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        //layout inflator reads xml and gives you views
+
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.president_pager_item, null);
+
+       // add the next three lines and get rid of everything else in this method to use butterknife
+       // in the presidentdetailviewholder
+
+      //  PresidentDetailViewHolder holder= new PresidentDetailViewHolder(view, presidents[position]);
+      //  container.addView(view);
+       // return view;
+
+
+
         ImageView image = (ImageView) view.findViewById(R.id.pres_image);
         TextView number = (TextView) view.findViewById(R.id.number);
         TextView name = (TextView) view.findViewById(R.id.name);
@@ -92,5 +97,9 @@ public class PresidentPagerAdapter extends PagerAdapter {
 
         container.addView(view);
         return view;
+    }
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View) object);
     }
 }

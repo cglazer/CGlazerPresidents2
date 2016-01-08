@@ -10,7 +10,7 @@
 
 
     <fragment
-        android:id="@+id/listFragment"
+        android:id="@+id/presidentListFragment"
         android:name="presidents.cglazer.cglazerpresidents.PresidentListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

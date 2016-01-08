@@ -13,15 +13,14 @@
         android:name="presidents.cglazer.cglazerpresidents.PresidentListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_president_list"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <fragment
         android:id="@+id/detailfragment"
         android:name="presidents.cglazer.cglazerpresidents.PresidentDetailFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 
 </LinearLayout>

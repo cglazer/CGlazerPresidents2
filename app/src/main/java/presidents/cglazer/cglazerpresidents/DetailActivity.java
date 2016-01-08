@@ -2,8 +2,6 @@ package presidents.cglazer.cglazerpresidents;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -18,7 +16,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         PresidentDetailFragment fragment = (PresidentDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detailfragment);
         Intent intent = getIntent();
-        President presidents[] = (President[]) intent.getSerializableExtra("PRESIDETNS");
+        President[] presidents = (President[]) intent.getSerializableExtra("PRESIDENTS");
         int position = intent.getIntExtra("POSITION", 0);
         fragment.showPresidentDetail(presidents, position);
 

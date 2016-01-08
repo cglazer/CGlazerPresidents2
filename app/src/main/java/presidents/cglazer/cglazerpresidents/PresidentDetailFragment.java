@@ -20,17 +20,17 @@ public class PresidentDetailFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_president_detail, container, false);
     }
 
-    public void showPresidentDetail(President presidents[], int position) {
-        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents);
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(position);
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        this.viewPager = (ViewPager) view.findViewById(R.id.viewPager);
 
+    }
+    public void showPresidentDetail(President[] presidents, int position) {
+        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents);
+        this.viewPager.setAdapter(adapter);
+        this.viewPager.setCurrentItem(position);
     }
 
 

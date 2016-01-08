@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <ImageView
@@ -10,53 +10,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:maxWidth="600dp"
         android:maxHeight="600dp"
+        android:maxWidth="600dp"
         android:scaleType="fitStart"
-        tools:src="@drawable/p1"
-        />
+        tools:src="@drawable/p1" />
 
     <TextView
         android:id="@+id/name"
+        style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/pres_image"
-        style="@style/PresidentInfo"
-        tools:text="NAME"/>
+        tools:text="NAME" />
 
     <TextView
         android:id="@+id/number"
+        style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@id/name"
         android:layout_alignParentRight="true"
-        style="@style/PresidentInfo"
-        tools:text="NUMBER"/>
+        android:layout_alignRight="@id/name"
+        tools:text="NUMBER" />
 
     <TextView
         android:id="@+id/birth_death_year"
+        style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_toRightOf="@+id/pres_image"
-        style="@style/PresidentInfo"
-        tools:text="BIRTH/DEATH YEAR"/>
+        tools:text="BIRTH/DEATH YEAR" />
 
     <TextView
         android:id="@+id/took_left_office"
+        style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/number"
-        style="@style/PresidentInfo"
-        tools:text="TOOK/LEFT_OFFICE"/>
-    
+        tools:text="TOOK/LEFT_OFFICE" />
+
     <TextView
         android:id="@+id/party"
+        style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/birth_death_year"
         android:layout_centerHorizontal="true"
-        style="@style/PresidentInfo"
-        tools:text="PARTY"/>
+        tools:text="PARTY" />
 </RelativeLayout>

@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity implements OnPresidentSelect
         setContentView(R.layout.activity_main);
 
         FragmentManager manager = getSupportFragmentManager();
-        listFragment = (PresidentListFragment) manager.findFragmentById(R.id.listFragment);
-        detailFragment = (PresidentDetailFragment) manager.findFragmentById(R.id.detailfragment);
+        this.listFragment = (PresidentListFragment) manager.findFragmentById(R.id.presidentListFragment);
+        this.detailFragment = (PresidentDetailFragment) manager.findFragmentById(R.id.detailfragment);
     }
 
     @Override
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements OnPresidentSelect
             detailFragment.showPresidentDetail(presidents, position);
         }else{
             Intent intent = new Intent(this, DetailActivity.class);
-            intent.putExtra("POSITION", position);
             intent.putExtra("PRESIDENTS", presidents);
+            intent.putExtra("POSITION", position);
             this.startActivity(intent);
         }
     }
